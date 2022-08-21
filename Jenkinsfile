@@ -1,11 +1,16 @@
-node('slave'){
-stage('stage1') {
-sh '''echo  stage1 steps'''
-}
-stage('stage2') {
-sh '''echo stage2 steps'''
-}
-stage('stage3') {
-sh '''echo stage3 steps'''
-}
-}
+pipeline {
+    agent{label 'slave'}
+    stages {
+        stage('Build and Push') {
+            steps {
+                echo 'Hello World'
+                echo 'docker push'
+            }
+        }  
+        stage('Deployment'){
+            steps{
+                echo "deployment"
+            }
+        }
+        }
+    }
