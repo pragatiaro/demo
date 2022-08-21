@@ -1,23 +1,11 @@
-pipeline{
-    //agent any
-    agent {label 'slave'}
-    stages{
-        stage('Git Pull'){
-            steps{
-                sh "echo hello"
-                sh "echo hi again"
-            }
-        }
-        stage('Build and Push'){
-            steps{
-                sh "start of stage2"
-            }
-        stage('Deployment'){
-            steps{
-                sh "echo deployment"            
-            }
-        }
-
-        }
-    }
+node('slave'){
+stage('stage1') {
+sh '''echo  stage1 steps'''
+}
+stage('stage2') {
+sh '''echo stage2 steps'''
+}
+stage('stage3') {
+sh '''echo stage3 steps'''
+}
 }
